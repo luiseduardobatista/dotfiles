@@ -2,9 +2,7 @@
 
 ## Table of Contents
 
-- [Goals](#goals)
-  - [Why Manjaro with i3?](#why-manjaro-with-i3)
-  - [Why Ansible?](#why-ansible)
+- [Why Ansible?](#why-ansible)
 - [Requirements](#requirements)
   - [Operating System](#operating-system)
   - [System Upgrade](#system-upgrade)
@@ -29,14 +27,6 @@
 - [Known Issues](#known-issues)
   - [Neovim Updates]($neovim-updates)
 
-## Goals
-
-Provide fully automated `Manjaro with i3` development environment that is easy to setup and maintain.
-
-### Why Manjaro with i3?
-
-Manjaro provides a very elegant wizard for installing Arch Linux WITH i3-gaps (required) which aligns with the goals of this repository.
-
 ### Why Ansible?
 
 Ansible replicates what we would do to setup a development environment pretty well. There are many automation solutions out there - we happen to enjoy using Ansible.
@@ -45,20 +35,17 @@ Ansible replicates what we would do to setup a development environment pretty we
 
 ### Operating System
 
-This Ansible playbook only supports `Manjaro with i3` distribution. This is by design to provide a consistent development expierence across hosts.
-
-- Download [Manjaro with i3](https://manjaro.org/downloads/community/i3/)
-- Install OS
+This Ansible playbook only supports `Ubuntu` distributions at the moment.
 
 ### System Upgrade
 
-Verify your `Manjaro with i3` installation has all latest packages installed before running the playbook.
+Verify your `Ubuntu` installation has all latest packages installed before running the playbook.
 
 ```
-sudo pacman -Syu
+sudo apt update ; sudo apt upgrade -y
 ```
 
-> NOTE: This will take some time.
+> NOTE: This can take some time.
 
 ## Setup
 
@@ -198,7 +185,7 @@ system_host:
 
 ### Examples
 
-Below includes minimal and advanced configuration examples. If you would like to see a more real world example take a look at [blackglasses public configuration](https://github.com/ALT-F4-LLC/dotfiles-erikreinert) repository.
+Below includes minimal and advanced configuration examples.
 
 #### Minimal
 
@@ -277,12 +264,6 @@ This playbook includes a custom shell script located at `bin/dotfiles`. This scr
 
 This shell script is also used to initialize your environment after installing `Manjaro with i3`, performing a full system upgrade and creating your `~/.config/dotfiles/values.yaml` configuration file as mentioned above.
 
-> NOTE: You must follow required steps before running this command or things may become unusable until fixed.
-
-```bash
-$ bash -c "$(curl -fsSL https://raw.githubusercontent.com/ALT-F4-LLC/dotfiles/main/bin/dotfiles)"
-```
-
 ### Update
 
 This repository is continuously updated with new features and settings which become available to you when updating.
@@ -300,11 +281,5 @@ This will handle the following tasks:
 - Clone this repository locally to `~/.dotfiles`
 - Verify any `ansible-galaxy` plugins are updated
 - Run this playbook with the values in `~/.config/dotfiles/values.yaml`
-
-## Known Issues
-
-### Neovim Updates
-
-Sometimes the cloning task in `neovim` role fails due to conflicts with the repository history. The easiest solution is to delete the repository at `~/Development/repository/github.com/neovim/neovim` and let the playbook clone it again.
 
 [preview]: https://github.com/ALT-F4-LLC/dotfiles/blob/main/TheAltF4Stream.gif "The Alt-F4 Stream"
