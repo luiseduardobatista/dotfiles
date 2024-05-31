@@ -1,4 +1,5 @@
--- name: "Flatpak | Install flatpak"
+--- 
+- name: "Flatpak | Install flatpak"
   ansible.builtin.package:
     name: flatpak
     state: present
@@ -42,4 +43,11 @@
   tags:
     - flatpak
   ignore_errors: true
---
+
+- name: "Flatpak | Install Discord"
+  community.general.flatpak:
+    name: com.discordapp.Discord
+    state: present
+  tags:
+    - flatpak
+  ignore_errors: true

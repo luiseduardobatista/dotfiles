@@ -40,7 +40,7 @@ set -e
 
 # Paths
 CONFIG_DIR="$HOME/.config/dotfiles"
-VAULT_SECRET="$HOME/.ansible-vault/vault.secret"
+VAULT_SECRET="$HOME/.config/dotfiles/vault-password.txt"
 DOTFILES_DIR="$HOME/.dotfiles"
 SSH_DIR="$HOME/.ssh"
 IS_FIRST_RUN="$HOME/.dotfiles_run"
@@ -155,9 +155,9 @@ update_ansible_galaxy $ID
 
 _task "Running playbook"; _task_done
 if [[ -f $VAULT_SECRET ]]; then
-  ansible-playbook --vault-password-file $VAULT_SECRET "$DOTFILES_DIR/main.yaml" "$@"
+  ansible-playbook --diff --extra-vars "@$CONFIG_DIR/values.yaml" --ask-become-pass --vault-password-file $VAULT_SECRET "$DOTFILES_DIR/main.yaml" "$@"
 else
-  ansible-playbook "$DOTFILES_DIR/main.yaml" "$@"
+  ansible-playbook --diff --extra-vars "@$CONFIG_DIR/values.yaml" --ask-become-pass "$DOTFILES_DIR/main.yaml" "$@"
 fi
 
 popd 2>&1 > /dev/null
