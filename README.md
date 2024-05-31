@@ -1,5 +1,5 @@
-# dotfiles
-
+![image](https://github.com/luiseduardobatista/dotfiles/assets/71658498/ddc94828-e525-460d-9437-8eaabb82492a)
+---
 ## Table of Contents
 
 - [Why Ansible?](#why-ansible)
