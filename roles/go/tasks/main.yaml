@@ -90,3 +90,19 @@
       notify:
         - Remove extracted go directory
   when: go_latest_version not in current_go_version.stdout|default('')
+
+- name: "Add Go binary path to .profile and .zshrc"
+  block:
+    - name: "Ensure line exists in .profile"
+      ansible.builtin.lineinfile:
+        path: "{{ ansible_user_dir }}/.profile"
+        line: "export PATH=$PATH:/usr/local/go/bin"
+        state: present
+        create: yes
+
+    - name: "Ensure line exists in .zshrc"
+      ansible.builtin.lineinfile:
+        path: "{{ ansible_user_dir }}/.zshrc"
+        line: "export PATH=$PATH:/usr/local/go/bin"
+        state: present
+        create: yes

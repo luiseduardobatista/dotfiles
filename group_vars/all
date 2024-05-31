@@ -5,7 +5,6 @@ default_roles:
   - flatpak
   - git
   - go
-  - jetbrains
   - lazygit
   - neovim
   - nodejs
@@ -14,3 +13,7 @@ default_roles:
   - rust
   - system
   - zsh
+  - python
+  - poetry
+  - pyenv
+  - docker

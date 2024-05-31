@@ -1,0 +1,7 @@
+- name: Install poetry
+  shell: curl -sSL https://install.python-poetry.org | python3 -
+  tags:
+    - dev
+
+- name: Config poetry
+  shell: echo 'export PATH="/home/luisb/.local/bin:$PATH"' >> ~/.zshrc
