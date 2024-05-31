@@ -1,0 +1,45 @@
+-- name: "Flatpak | Install flatpak"
+  ansible.builtin.package:
+    name: flatpak
+    state: present
+  become: true
+
+- name: "Flatpak | Add Flathub remote"
+  community.general.flatpak_remote:
+    name: "flathub"
+    flatpakrepo_url: "https://flathub.org/repo/flathub.flatpakrepo"
+    state: present
+  become: true
+
+- name: "Flatpak | Install DBeaver Community"
+  community.general.flatpak:
+    name: io.dbeaver.DBeaverCommunity
+    state: present
+  tags:
+    - flatpak
+  ignore_errors: true
+
+- name: "Flatpak | Install Flatseal"
+  community.general.flatpak:
+    name: com.github.tchx84.Flatseal
+    state: present
+  tags:
+    - flatpak
+  ignore_errors: true
+
+- name: "Flatpak | Install Brave Browser"
+  community.general.flatpak:
+    name: com.brave.Browser
+    state: present
+  tags:
+    - flatpak
+  ignore_errors: true
+
+- name: "Flatpak | Install Insomnia"
+  community.general.flatpak:
+    name: rest.insomnia.Insomnia
+    state: present
+  tags:
+    - flatpak
+  ignore_errors: true
+--

@@ -1,0 +1,6 @@
+---
+- name: "NodeJS | Install nvm"
+  shell: "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash"
+
+- name: "NodeJS | Install node for neovim plugins"
+  shell: "nvm install node"
