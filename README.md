@@ -24,8 +24,6 @@
 - [Usage](#usage)
   - [Install](#install)
   - [Update](#update)
-- [Known Issues](#known-issues)
-  - [Neovim Updates]($neovim-updates)
 
 ### Why Ansible?
 
@@ -281,5 +279,3 @@ This will handle the following tasks:
 - Clone this repository locally to `~/.dotfiles`
 - Verify any `ansible-galaxy` plugins are updated
 - Run this playbook with the values in `~/.config/dotfiles/values.yaml`
-
-[preview]: https://github.com/ALT-F4-LLC/dotfiles/blob/main/TheAltF4Stream.gif "The Alt-F4 Stream"
