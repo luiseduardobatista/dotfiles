@@ -1,7 +1,5 @@
 # dotfiles
 
-Fully automated development environment for `blackglasses` at [The Alt-F4 Stream](https://www.twitch.tv/thealtf4stream) on Twitch.
-
 [![How To Automate Your Dev Setup](http://img.youtube.com/vi/V_Cj_p6se3k/0.jpg)](http://www.youtube.com/watch?v=V_Cj_p6se3k "How To Automate Your Dev Setup")
 
 ## Table of Contents
