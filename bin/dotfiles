@@ -153,9 +153,9 @@ update_ansible_galaxy $ID
 _task "Rodando playbook"
 _task_done
 if [[ -f $VAULT_SECRET ]]; then
-	ansible-playbook --extra-vars "@$VALUES_DIR/values.yaml" --vault-password-file $VAULT_SECRET "$DOTFILES_DIR/main.yml" "$@"
+	ansible-playbook --ask-become-pass --extra-vars "@$VALUES_DIR/values.yaml" --vault-password-file $VAULT_SECRET "$DOTFILES_DIR/main.yml" "$@"
 else
-	ansible-playbook --extra-vars "@$VALUES_DIR/values.yaml" "$DOTFILES_DIR/main.yml" "$@"
+	ansible-playbook --ask-become-pass --extra-vars "@$VALUES_DIR/values.yaml" "$DOTFILES_DIR/main.yml" "$@"
 fi
 
 popd 2>&1 >/dev/null

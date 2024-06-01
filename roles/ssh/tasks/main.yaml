@@ -4,7 +4,38 @@
     dest: "{{ git_ssh_dir }}/{{ ssh_key_item.key }}"
     content: "{{ ssh_key_item.value }}"
     mode: 0600
+    owner: "{{ lookup('env', 'USER') }}"
   no_log: true
   loop_control:
     loop_var: ssh_key_item
   with_items: "{{ ssh_key | default({}) | dict2items }}"
+
+- name: Change ssh keys access level.
+  shell: chmod 644 ~/.ssh/id_rsa_pessoal.pub ; chmod 644 ~/.ssh/id_rsa_kyros.pub
+  tags:
+    - ssh
+
+- name: Start ssh agent.
+  shell: eval "$(ssh-agent)"
+  tags:
+    - ssh
+
+- name: Set authorized personal key took from file
+  authorized_key:
+    user: "{{ lookup('env', 'USER') }}"
+    state: present
+    key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa_pessoal.pub') }}"
+  ignore_errors: true
+
+- name: Set authorized work key took from file
+  authorized_key:
+    user: "{{ lookup('env', 'USER') }}"
+    state: present
+    key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa_kyros.pub') }}"
+  ignore_errors: true
+  
+- name: Create SSH config file
+  copy:
+    dest: "{{ git_ssh_dir }}/config"
+    content: "{{ git_config }}"
+    mode: 0600
