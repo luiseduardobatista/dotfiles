@@ -125,6 +125,9 @@ case $ID in
 ubuntu)
 	ubuntu_setup
 	;;
+pop)
+	ubuntu_setup
+	;;
 *)
 	_task "Distro não suportada"
 	_cmd "Distro não suportada"
