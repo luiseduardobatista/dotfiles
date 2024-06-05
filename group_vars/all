@@ -1,19 +1,2 @@
 default_roles:
-  - system
-  - ssh
-  - firefox
-  - flatpak
-  - git
-  - go
-  - lazygit
   - neovim
-  - nodejs
-  - zsh
-  - oh-my-zsh
-  - ripgrep
-  - rust
-  - system
-  - python
-  - poetry
-  - pyenv
-  - docker

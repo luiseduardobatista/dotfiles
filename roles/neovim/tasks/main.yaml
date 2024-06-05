@@ -13,21 +13,22 @@
       - build-essential
       - gettext
     state: latest
-  become: yes
+  become: true
 
-- name: Remove existing Neovim directory
+- name: Ensure Neovim directory exists
   ansible.builtin.file:
     path: "{{ lookup('env', 'HOME') }}/neovim"
-    state: absent
-  become: true
+    state: directory
   tags:
     - clean
     - neovim
 
-- name: Clone Neovim
+- name: Pull the latest Neovim code
   ansible.builtin.git:
     repo: "https://github.com/neovim/neovim.git"
     dest: "{{ lookup('env', 'HOME') }}/neovim"
+    update: true
+    version: stable
   tags:
     - install
     - neovim
