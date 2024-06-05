@@ -8,11 +8,11 @@ default_roles:
   - lazygit
   - neovim
   - nodejs
+  - zsh
   - oh-my-zsh
   - ripgrep
   - rust
   - system
-  - zsh
   - python
   - poetry
   - pyenv
