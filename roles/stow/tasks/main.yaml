@@ -9,10 +9,8 @@
     - stow
     - install
 
-
 - name: Stow dotfiles
-  become: yes
-  shell: "stow $HOME/.dotfiles/configs/*"
-  with_items: "{{ stow_folders.split(' ') }}"
+  shell: "cd $HOME/.dotfiles/configs ; stow ."
   tags:
     - stow
+
