@@ -1,0 +1,11 @@
+---
+- name: "Install i3"
+  ansible.builtin.package:
+    name:
+      - i3
+      - picom
+      - polybar
+      - rofi
+      - lxappearance
+    state: latest
+  become: true

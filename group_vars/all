@@ -10,6 +10,7 @@ default_roles:
   - nodejs
   - zsh
   - oh-my-zsh
+  - zoxide
   - ripgrep
   - rust
   - system
@@ -17,3 +18,4 @@ default_roles:
   - poetry
   - pyenv
   - docker
+  - i3wm
