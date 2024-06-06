@@ -6,5 +6,6 @@
       - picom
       - polybar
       - rofi
+      - lxappearance
     state: latest
   become: true
