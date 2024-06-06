@@ -10,7 +10,7 @@
     - install
 
 - name: Stow dotfiles
-  shell: "cd $HOME/.dotfiles/configs ; stow ."
+  shell: "cd $HOME/.dotfiles ; stow -D configs ; stow configs"
   tags:
     - stow
 
