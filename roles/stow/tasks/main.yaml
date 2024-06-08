@@ -1,0 +1,16 @@
+---
+- name: Ensure stow is installed
+  ansible.builtin.package:
+    name:
+      - stow
+    state: latest
+  become: true
+  tags:
+    - stow
+    - install
+
+- name: Stow dotfiles
+  shell: "cd $HOME/.dotfiles ; stow -D configs ; stow configs"
+  tags:
+    - stow
+
