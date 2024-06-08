@@ -242,7 +242,7 @@ zsh_private:
 The `vault-password.txt` file allows you to encrypt values with `Ansible vault` and store them securely in source control. Create a file located at `~/.config/dotfiles/vault-password.txt` with a secure password in it.
 
 ```bash
-vim .config/dotfiles/vault-password.yaml
+vim .config/dotfiles/vault-password.txt
 ```
 
 To then encrypt values with your vault password use the following:
