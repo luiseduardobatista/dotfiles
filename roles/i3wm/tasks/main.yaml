@@ -7,5 +7,6 @@
       - polybar
       - rofi
       - lxappearance
+      - feh
     state: latest
   become: true
