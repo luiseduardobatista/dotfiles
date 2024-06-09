@@ -22,3 +22,14 @@ alias woof="k9s"
 if [ -f "$HOME/.zsh_public" ]; then . "$HOME/.zsh_public"; fi
 if [ -f "$HOME/.zsh_private" ]; then . "$HOME/.zsh_private"; fi
 eval "$(zoxide init zsh)"
+
+if [ -z "$SSH_AUTH_SOCK" ]; then
+    eval $(ssh-agent -s) > /dev/null
+    # Adicionar as chaves apenas na primeira inicialização do ssh-agent
+    SSH_KEY_DIR="$HOME/.ssh"
+    for key in "$SSH_KEY_DIR"/id_rsa*; do
+        if [[ -f "$key" && "$key" != *.pub ]]; then
+            ssh-add "$key" > /dev/null 2>&1
+        fi
+    done
+fi
