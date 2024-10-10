@@ -1,5 +1,4 @@
 [submodule "nvim"]
 	path = nvim
 	url = git@github:luiseduardobatista/lazyvim.git
-  brach = main
 	branch = main
