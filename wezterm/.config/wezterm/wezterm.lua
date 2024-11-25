@@ -9,6 +9,9 @@ end
 config.color_scheme = "Catppuccin Macchiato"
 config.font = wezterm.font("JetBrainsMono Nerd Font")
 config.font_size = 14
+config.max_fps = 120
+config.animation_fps = 120
+config.use_dead_keys = true
 config.window_decorations = "RESIZE"
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 2002 }
 config.window_padding = { right = 0, top = 0, bottom = 0 }
