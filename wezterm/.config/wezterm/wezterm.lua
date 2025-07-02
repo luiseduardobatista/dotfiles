@@ -6,15 +6,20 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
-config.color_scheme = "Catppuccin Macchiato"
+config.color_scheme = "Catppuccin Mocha"
 config.font = wezterm.font("JetBrainsMono Nerd Font")
+config.colors = {
+	background = "#000",
+}
 config.font_size = 14
 config.max_fps = 120
 config.animation_fps = 120
 config.use_dead_keys = true
-config.window_decorations = "RESIZE"
+config.window_decorations = "NONE"
+config.enable_wayland = false
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 2002 }
 config.window_padding = { right = 0, top = 0, bottom = 0 }
+
 config.keys = {
 	{
 		mods = "LEADER",
@@ -106,20 +111,21 @@ config.keys = {
 	},
 }
 
-for i = 0, 9 do
+for i = 1, 9 do
 	-- leader + number to activate that tab
 	table.insert(config.keys, {
 		key = tostring(i),
 		mods = "LEADER",
-		action = wezterm.action.ActivateTab(i),
+		action = wezterm.action.ActivateTab(i - 1),
 	})
 end
 
 -- tab bar
-config.hide_tab_bar_if_only_one_tab = false
+config.hide_tab_bar_if_only_one_tab = true
+-- config.hide_tab_bar_if_only_one_tab = false
 config.tab_bar_at_bottom = true
 config.use_fancy_tab_bar = false
-config.tab_and_split_indices_are_zero_based = true
+config.tab_and_split_indices_are_zero_based = false
 
 -- tmux status
 wezterm.on("update-right-status", function(window, _)
