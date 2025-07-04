@@ -14,9 +14,8 @@ config.colors = {
 config.font_size = 14
 config.max_fps = 120
 config.animation_fps = 120
-config.use_dead_keys = true
+config.use_dead_keys = false
 config.window_decorations = "NONE"
-config.enable_wayland = false
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 2002 }
 config.window_padding = { right = 0, top = 0, bottom = 0 }
 
@@ -134,7 +133,7 @@ wezterm.on("update-right-status", function(window, _)
 	local prefix = ""
 
 	if window:leader_is_active() then
-		prefix = " " .. utf8.char(0x1f30a) -- ocean wave
+		prefix = " LEADER"
 		SOLID_LEFT_ARROW = utf8.char(0xe0b2)
 	end
 
@@ -144,6 +143,7 @@ wezterm.on("update-right-status", function(window, _)
 
 	window:set_left_status(wezterm.format({
 		{ Background = { Color = "#b7bdf8" } },
+		{ Foreground = { Color = "#1e1e2e" } },
 		{ Text = prefix },
 		ARROW_FOREGROUND,
 		{ Text = SOLID_LEFT_ARROW },
